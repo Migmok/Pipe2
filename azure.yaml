@@ -20,7 +20,7 @@ steps:
   displayName: 'Install Robot Framework and SeleniumLibrary'
 
 - script: |
-    robot --outputdir $(Build.ArtifactStagingDirectory)/TestReports --output report.xml piperobot.robot
+    robot --outputdir $(Build.ArtifactStagingDirectory)/TestReports --output report.xml rob_py_azure.robot
   displayName: 'Execute Robot Framework tests'
 
 - task: PublishPipelineArtifact@1
