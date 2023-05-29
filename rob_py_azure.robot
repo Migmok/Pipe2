@@ -2,7 +2,6 @@
 Documentation     Example Test Suite
 Library           SeleniumLibrary
 Library           OperatingSystem
-Library           BuiltIn
 
 *** Variables ***
 ${AzureDevOpsURL}    https://dev.azure.com/miguelmduarte
@@ -25,6 +24,18 @@ Primeiro
     Capture Page Screenshot    MyScreenshot2.png
 
     OperatingSystem.Run    python C:\Users\a\Desktop\IW\PythonAzure\pythonazure.py
-
-
     Close Browser
+
+Segundo
+    [Tags]  Não vai funcionar
+    [Setup]    Open Browser    ${URL}    ${BROWSER}
+    Input Text    //*[@id="user-name"]    standard_user
+    Input Text    //*[@id="password"]    secret_sauce
+    Capture Page Screenshot    MyScreenshot1.png
+    Click Element    //*[@id="login-button"]
+    Wait Until Page Contains    Swag Lab
+    Page Should Contain Element    ${object}
+    Capture Page Screenshot    MyScreenshot2.png
+    Close Browser
+
+
